@@ -105,7 +105,6 @@
             <artifactId>spotless-maven-plugin</artifactId>
             <version>${plugin.spotless.version}</version>
             <configuration>
-              <ratchetFrom>origin/main</ratchetFrom>
               <formats>
                 <format>
                   <includes>
