@@ -1,4 +1,4 @@
-name: Maven CI
+name: Maven with Eclipse Yasson and Eclipse Jersey
 
 on:
   workflow_dispatch: { }
@@ -21,4 +21,4 @@ jobs:
 
       - name: Build application with Maven
         shell: bash
-        run: ./mvnw --show-version --errors --batch-mode --no-transfer-progress verify -Pdocs,json-yasson -DtrimStackTrace=false
+        run: ./mvnw --show-version --errors --batch-mode --no-transfer-progress verify -Pdocs,json-yasson,jaxrs-jersey -DtrimStackTrace=false
