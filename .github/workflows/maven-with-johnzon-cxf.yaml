@@ -1,4 +1,4 @@
-name: Maven with Eclipse Yasson and Eclipse Jersey
+name: Maven with Apache Johnzon and Apache CXF
 
 on:
   workflow_dispatch: { }
@@ -19,6 +19,6 @@ jobs:
           java-version: 17
           distribution: temurin
 
-      - name: Build application with Maven using Eclipse Yasson and Eclipse Jersey
+      - name: Build application with Maven using Apache Johnzon and Apache CXF
         shell: bash
-        run: ./mvnw --show-version --errors --batch-mode --no-transfer-progress verify -Pdocs,json-yasson,jaxrs-jersey -DtrimStackTrace=false
+        run: ./mvnw --show-version --errors --batch-mode --no-transfer-progress verify -Pdocs,json-johnzon,jaxrs-cxf -DtrimStackTrace=false
