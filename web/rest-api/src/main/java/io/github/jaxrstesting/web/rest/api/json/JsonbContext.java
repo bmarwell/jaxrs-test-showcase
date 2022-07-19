@@ -14,7 +14,7 @@ public class JsonbContext implements AutoCloseable {
 
   public JsonbContext() {
     final JsonbConfig jsonbConfig =
-        new JsonbConfig().withSerializers(new AuthorIdSerializer()).withNullValues(Boolean.TRUE);
+        new JsonbConfig().withAdapters(new AuthorIdAdapter()).withNullValues(Boolean.TRUE);
 
     this.jsonb = JsonbBuilder.newBuilder().withConfig(jsonbConfig).build();
     LOG.log(

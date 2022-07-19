@@ -72,14 +72,14 @@
   </properties>
 
   <modules>
-    <!--
       <module>common/value</module>
       <module>services/svc-api</module>
+    <!--
       <module>services/svc-impl</module>
     -->
       <module>web/rest-api</module>
-    <!--
       <module>web/rest-impl</module>
+    <!--
       <module>its/svc-mock</module>
       <module>its/jaxrs-client-tests</module>
       <module>its/openliberty</module>
@@ -211,10 +211,35 @@
               </property>
             </systemProperties>
           </configuration>
-
         </plugin>
 
-        <!-- third party plugins -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>3.2.1</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>3.4.0</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.2.2</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.3.2</version>
+          <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+          </configuration>
+        </plugin>
+
         <!-- third party plugins -->
         <plugin>
           <groupId>com.diffplug.spotless</groupId>
