@@ -2,6 +2,7 @@ package io.github.jaxrstesting.web.rest.api.value;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import io.github.jaxrstesting.common.value.AuthorId;
 import io.github.jaxrstesting.web.rest.api.json.JsonbContext;
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
