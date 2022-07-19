@@ -1,1 +1,71 @@
-=JAX-RS Test Showcase
+= JAX-RS Test Showcase
+:icons: font
+:toc: macro
+:figure-caption!:
+
+image:https://github.com/bmarwell/jaxrs-test-showcase/actions/workflows/maven-with-yasson-jersey.yaml/badge.svg[alt="Maven with Eclipse Yasson and Eclipse Jersey",link="https://github.com/bmarwell/jaxrs-test-showcase/actions/workflows/maven-with-yasson-jersey.yaml"]
+
+JAX-RS is a popular JavaEE standard to create RESTful endpoints in Java easily.
+However, it is not always clear for new learners how to test those endpoints properly.
+
+toc::[]
+
+== Project setup
+
+=== JSON-P, JSON-B and JAX-RS implementations
+
+As JAX-RS is only a standard and is usually used in conjunction with JSON, there are unsurprisingly multiple implementations for those standards available.
+
+.JAX-RS implementations
+|===
+|Vendor |Library Name |License |Maven Profile
+
+|Apache Foundation
+|Apache CXF
+|Apache License 2.0
+m|jaxrs-cxf
+
+|Eclipse Foundation
+|Eclipse Jersey (reference implementation)
+|Eclipse Public License 2.0
+m|jaxrs-jersey
+
+|JBoss by RedHat
+|JBoss restEasy
+|Apache License 2.0
+m|jaxrs-resteasy
+|===
+
+You can also switch the https://javaee.github.io/jsonb-spec/[JSON-B] and JSON-P implementations.
+However, both of them can only be switched at the same time.
+
+.JSON implementations
+|===
+|Vendor |Library Name |License |Maven Profile
+
+|Apache Foundation
+|Apache Johnzon
+|Apache License 2.0
+m|json-johnzon
+
+|Eclipse Foundation
+|Eclipse Yasson (reference implementation)
+|Eclipse Public License 2.0
+m|json-yasson
+
+|===
+
+By default, the profiles `jaxrs-cxf` and `json-yasson` are active.
+
+=== Web-API and Web-Impl projects
+
+First we need an endpoint to test.
+For this reason, there are the modules `web/rest-api` and `web/rest-impl`.
+Please note that it is often not required to have a separate api project.
+This is YAGNI (you ain't gonna need it) in most cases.
+However, separating the API from the implementation allows you (or others) to re-use
+the jar file from the API project for the https://cxf.apache.org/docs/jax-rs-client-api.html#JAXRSClientAPI-Proxy-basedAPI[Proxy-based API].
+
+=== Test projects
+
+<TBD>
