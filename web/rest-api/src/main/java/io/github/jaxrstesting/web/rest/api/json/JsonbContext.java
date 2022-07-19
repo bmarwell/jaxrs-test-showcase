@@ -16,12 +16,13 @@ public class JsonbContext implements AutoCloseable {
     final JsonbConfig jsonbConfig =
         new JsonbConfig().withAdapters(new AuthorIdAdapter()).withNullValues(Boolean.TRUE);
 
-    this.jsonb = JsonbBuilder.newBuilder().withConfig(jsonbConfig).build();
+    this.jsonb = JsonbBuilder.newBuilder()
+        .withConfig(jsonbConfig)
+        .build();
+
     LOG.log(
         Level.FINE,
-        () ->
-            "Using JSON-B implementation: [%s]."
-                .formatted(this.jsonb.getClass().getCanonicalName()));
+        () -> "Using JSON-B implementation: [%s].".formatted(this.jsonb.getClass().getCanonicalName()));
   }
 
   public Jsonb getJsonb() {

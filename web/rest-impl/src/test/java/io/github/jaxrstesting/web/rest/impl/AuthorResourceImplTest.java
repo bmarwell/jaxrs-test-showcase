@@ -13,14 +13,17 @@ import io.github.jaxrstesting.services.api.query.AuthorQuery;
 import io.github.jaxrstesting.web.rest.api.value.AuthorRestDto;
 import io.github.jaxrstesting.web.rest.impl.mapper.AuthorMapper;
 import jakarta.ws.rs.core.Response;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 
+@DisabledIfSystemProperty(
+    named = "jakarta.ws.rs.ext.RuntimeDelegate",
+    matches = "org.apache.cxf.jaxrs.impl.RuntimeDelegateImpl",
+    disabledReason = "CXF cannot set jakarta.ws.rs.ext.RuntimeDelegate.")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class AuthorResourceImplTest {
 
@@ -33,7 +36,6 @@ class AuthorResourceImplTest {
     this.authorResource.setQueryService(queryService);
     this.authorResource.setAuthorMapper(new AuthorMapper());
     final String sysProp = System.getProperty("jakarta.ws.rs.ext.RuntimeDelegate");
-    Logger.getLogger(AuthorResourceImplTest.class.getName()).log(Level.WARNING, sysProp);
   }
 
   /**

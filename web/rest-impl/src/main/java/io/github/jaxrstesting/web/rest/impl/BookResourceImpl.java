@@ -21,7 +21,8 @@ import jakarta.ws.rs.core.Response;
 @Produces(MediaType.APPLICATION_JSON)
 public class BookResourceImpl implements BookstoreResource {
 
-  @Inject private BookstoreQueryService queryService;
+  @Inject
+  private BookstoreQueryService queryService;
 
   public BookResourceImpl() {}
 
