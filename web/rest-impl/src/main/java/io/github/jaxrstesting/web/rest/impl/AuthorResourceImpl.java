@@ -9,7 +9,13 @@ import io.github.jaxrstesting.web.rest.api.value.AuthorRestDto;
 import io.github.jaxrstesting.web.rest.impl.mapper.AuthorMapper;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
@@ -74,5 +80,13 @@ public class AuthorResourceImpl implements AuthorResource {
 
   protected void setQueryService(BookstoreQueryService queryService) {
     this.queryService = queryService;
+  }
+
+  public AuthorMapper getAuthorMapper() {
+    return authorMapper;
+  }
+
+  public void setAuthorMapper(AuthorMapper authorMapper) {
+    this.authorMapper = authorMapper;
   }
 }

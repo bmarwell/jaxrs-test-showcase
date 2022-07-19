@@ -69,6 +69,7 @@
 
     <!-- test dependencies -->
     <dependency.assertj.version>3.23.1</dependency.assertj.version>
+    <dependency.mockito.version>4.6.1</dependency.mockito.version>
   </properties>
 
   <modules>
@@ -155,6 +156,12 @@
           <version>${dependency.assertj.version}</version>
           <scope>test</scope>
         </dependency>
+        <dependency>
+          <groupId>org.mockito</groupId>
+          <artifactId>mockito-core</artifactId>
+          <version>${dependency.mockito.version}</version>
+          <scope>test</scope>
+        </dependency>
 
       </dependencies>
     </dependencyManagement>
@@ -179,6 +186,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
       <groupId>io.yupiik.logging</groupId>
       <artifactId>yupiik-logging-jul</artifactId>
       <scope>test</scope>
@@ -193,6 +206,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${plugin.maven-compiler-plugin.version}</version>
+          <configuration>
+            <enablePreview>true</enablePreview>
+            <showDeprecation>true</showDeprecation>
+            <showWarnings>true</showWarnings>
+          </configuration>
         </plugin>
 
         <plugin>
@@ -200,6 +218,7 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${plugin.maven-surefire-plugin.version}</version>
           <configuration>
+            <argLine>--enable-preview</argLine>
             <systemProperties>
               <property>
                 <name>java.util.logging.manager</name>
@@ -429,6 +448,71 @@
       </profile>
 
       <!-- chose your JAX-RS implementation -->
+      <profile>
+        <id>jaxrs-jersey</id>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+        </activation>
+        <dependencyManagement>
+          <dependencies>
+            <dependency>
+              <groupId>org.glassfish.jersey.core</groupId>
+              <artifactId>jersey-client</artifactId>
+              <version>3.1.0-M3</version>
+              <scope>test</scope>
+            </dependency>
+          </dependencies>
+        </dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <scope>test</scope>
+          </dependency>
+        </dependencies>
+      </profile>
+
+      <profile>
+        <id>jaxrs-cxf</id>
+        <dependencyManagement>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.cxf</groupId>
+              <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+              <version>3.5.3</version>
+              <scope>test</scope>
+            </dependency>
+          </dependencies>
+        </dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <scope>test</scope>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-extension-providers</artifactId>
+            <version>3.4.4</version>
+            <scope>test</scope>
+          </dependency>
+        </dependencies>
+        <build>
+          <plugins>
+            <plugin>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <configuration>
+                <systemProperties>
+                  <property>
+                    <name>jakarta.ws.rs.ext.RuntimeDelegate</name>
+                    <value>org.apache.cxf.jaxrs.impl.RuntimeDelegateImpl</value>
+                  </property>
+                </systemProperties>
+              </configuration>
+            </plugin>
+          </plugins>
+        </build>
+      </profile>
     </profiles>
 
   </project>
