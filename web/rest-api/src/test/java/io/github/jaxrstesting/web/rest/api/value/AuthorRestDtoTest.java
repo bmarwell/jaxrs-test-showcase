@@ -38,7 +38,7 @@ class AuthorRestDtoTest {
     final String json = jsonb.getJsonb().toJson(authorRestDto);
 
     // then
-    //noinspection unchecked
+    // noinspection unchecked
     assertThat(jsonb.getJsonb().fromJson(json, Map.class)).containsEntry("id", "rpfeynman");
   }
 }

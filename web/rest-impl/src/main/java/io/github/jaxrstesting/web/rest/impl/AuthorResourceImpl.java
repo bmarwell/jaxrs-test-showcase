@@ -27,9 +27,11 @@ import java.util.Optional;
 @ApplicationScoped
 public class AuthorResourceImpl implements AuthorResource {
 
-  @Inject private BookstoreQueryService queryService;
+  @Inject
+  private BookstoreQueryService queryService;
 
-  @Inject private AuthorMapper authorMapper;
+  @Inject
+  private AuthorMapper authorMapper;
 
   public AuthorResourceImpl() {}
 
@@ -46,12 +48,16 @@ public class AuthorResourceImpl implements AuthorResource {
         this.queryService.queryAuthors(new AuthorByIdQuery(authorId)).findAny();
 
     if (author.isEmpty()) {
-      return Response.status(Status.NOT_FOUND).build();
+      return Response
+          .status(Status.NOT_FOUND)
+          .build();
     }
 
     AuthorRestDto authorRestDto = this.authorMapper.mapToAuthor(author.orElseThrow());
 
-    return Response.ok(authorRestDto).build();
+    return Response
+        .ok(authorRestDto)
+        .build();
   }
 
   @Override

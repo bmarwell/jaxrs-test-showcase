@@ -49,6 +49,8 @@
     <java.version>17</java.version>
     <maven.compiler.release>${java.version}</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!--suppress UnresolvedMavenProperty -->
+    <reactor.root.dir>${maven.multiModuleProjectDirectory}</reactor.root.dir>
 
     <!-- plugin versions -->
     <plugin.maven-compiler-plugin.version>3.10.1</plugin.maven-compiler-plugin.version>
@@ -70,6 +72,9 @@
     <!-- test dependencies -->
     <dependency.assertj.version>3.23.1</dependency.assertj.version>
     <dependency.mockito.version>4.6.1</dependency.mockito.version>
+
+    <!-- plugin settings -->
+    <plugin.spotless.eclipse.file>${reactor.root.dir}/eclipse-formatter.xml</plugin.spotless.eclipse.file>
   </properties>
 
   <modules>
@@ -288,11 +293,10 @@
               <importOrder/>
               <removeUnusedImports/>
 
-              <googleJavaFormat>
-                <version>1.15.0</version>
-                <style>GOOGLE</style>
-                <reflowLongStrings>true</reflowLongStrings>
-              </googleJavaFormat>
+              <eclipse>
+                <version>4.21.0</version>
+                <file>${plugin.spotless.eclipse.file}</file>
+              </eclipse>
             </java>
           </configuration>
           </plugin>
@@ -492,8 +496,8 @@
           </dependency>
           <dependency>
             <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-extension-providers</artifactId>
-            <version>3.4.4</version>
+            <artifactId>cxf-rt-rs-client</artifactId>
+            <version>3.5.3</version>
             <scope>test</scope>
           </dependency>
         </dependencies>
