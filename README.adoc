@@ -57,7 +57,7 @@ m|json-yasson
 
 |===
 
-By default, the profiles `jaxrs-cxf` and `json-yasson` are active.
+Where useful, tests are duplicated to be run on all combinations of implementations.
 
 === Web-API and Web-Impl projects
 
