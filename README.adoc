@@ -3,8 +3,7 @@
 :toc: macro
 :figure-caption!:
 
-image:https://github.com/bmarwell/jaxrs-test-showcase/actions/workflows/maven-with-johnzon-cxf.yaml/badge.svg[alt="Maven with Apache Johnzon and Apache CXF",link="https://github.com/bmarwell/jaxrs-test-showcase/actions/workflows/maven-with-johnzon-cxf.yaml"]
-image:https://github.com/bmarwell/jaxrs-test-showcase/actions/workflows/maven-with-yasson-jersey.yaml/badge.svg[alt="Maven with Eclipse Yasson and Eclipse Jersey",link="https://github.com/bmarwell/jaxrs-test-showcase/actions/workflows/maven-with-yasson-jersey.yaml"]
+image:https://github.com/bmarwell/jaxrs-test-showcase/actions/workflows/maven-ci.yaml/badge.svg[alt="Maven CI",link="https://github.com/bmarwell/jaxrs-test-showcase/actions/workflows/maven-ci.yaml"]
 image:https://img.shields.io/badge/maintaied%20with-renovate-blue?logo=renovatebot[alt="renovate",link="https://lift.sonatype.com/results/github.com/bmarwell/jaxrs-test-showcase"]
 image:https://img.shields.io/badge/License-Apache%202.0-blue.svg[Apache License v2.0,124,20,link=https://opensource.org/licenses/Apache-2.0]
 

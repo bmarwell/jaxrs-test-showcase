@@ -85,6 +85,7 @@
     -->
       <module>web/rest-api</module>
       <module>web/rest-impl</module>
+    <module>unittests/jersey-yasson</module>
     <!--
       <module>its/svc-mock</module>
       <module>its/jaxrs-client-tests</module>
@@ -261,6 +262,7 @@
           <version>3.3.2</version>
           <configuration>
             <failOnMissingWebXml>false</failOnMissingWebXml>
+            <attachClasses>true</attachClasses>
           </configuration>
         </plugin>
 
@@ -359,31 +361,6 @@
         </build>
       </profile>
 
-      <!-- chose your JSON(-B) implementation -->
-      <profile>
-        <id>json-yasson</id>
-        <activation>
-          <activeByDefault>true</activeByDefault>
-        </activation>
-        <dependencyManagement>
-          <dependencies>
-            <dependency>
-              <groupId>org.eclipse</groupId>
-              <artifactId>yasson</artifactId>
-              <version>${dependency.yasson.version}</version>
-              <scope>test</scope>
-            </dependency>
-          </dependencies>
-        </dependencyManagement>
-        <dependencies>
-          <dependency>
-            <groupId>org.eclipse</groupId>
-            <artifactId>yasson</artifactId>
-            <scope>test</scope>
-          </dependency>
-        </dependencies>
-      </profile>
-
       <profile>
         <id>json-johnzon</id>
         <dependencyManagement>
@@ -446,31 +423,6 @@
             <groupId>org.apache.johnzon</groupId>
             <artifactId>johnzon-mapper</artifactId>
             <classifier>jakarta</classifier>
-            <scope>test</scope>
-          </dependency>
-        </dependencies>
-      </profile>
-
-      <!-- chose your JAX-RS implementation -->
-      <profile>
-        <id>jaxrs-jersey</id>
-        <activation>
-          <activeByDefault>true</activeByDefault>
-        </activation>
-        <dependencyManagement>
-          <dependencies>
-            <dependency>
-              <groupId>org.glassfish.jersey.core</groupId>
-              <artifactId>jersey-client</artifactId>
-              <version>3.1.0-M3</version>
-              <scope>test</scope>
-            </dependency>
-          </dependencies>
-        </dependencyManagement>
-        <dependencies>
-          <dependency>
-            <groupId>org.glassfish.jersey.core</groupId>
-            <artifactId>jersey-client</artifactId>
             <scope>test</scope>
           </dependency>
         </dependencies>
