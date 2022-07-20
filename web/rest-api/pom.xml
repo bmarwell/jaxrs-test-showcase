@@ -40,6 +40,14 @@
       <artifactId>jakarta.json-api</artifactId>
       <scope>provided</scope>
     </dependency>
+
+    <!-- johnzon or yasson will both work -->
+    <dependency>
+      <groupId>org.eclipse</groupId>
+      <artifactId>yasson</artifactId>
+      <version>${dependency.yasson.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
 
