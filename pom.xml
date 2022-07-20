@@ -78,14 +78,22 @@
   </properties>
 
   <modules>
-      <module>common/value</module>
-      <module>services/svc-api</module>
+    <module>common/value</module>
+    <module>services/svc-api</module>
     <!--
       <module>services/svc-impl</module>
     -->
-      <module>web/rest-api</module>
-      <module>web/rest-impl</module>
+    <module>web/rest-api</module>
+    <module>web/rest-impl</module>
+
+    <!-- Unit testing does not make much sense for JAX-RS, but you can unit-test JSON (de-)serialization. -->
     <module>unittests/jersey-yasson</module>
+
+    <!-- System testing will boot a mock or small container like grizzly, jetty etc. -->
+    <module>systemtests/jaxrs-jsonb-support</module>
+    <module>systemtests/jersey-grizzly2-yasson</module>
+    <module>systemtests/jersey-grizzly2-johnzon</module>
+
     <!--
       <module>its/svc-mock</module>
       <module>its/jaxrs-client-tests</module>
@@ -356,115 +364,6 @@
                 </execution>
               </executions>
               <inherited>true</inherited>
-            </plugin>
-          </plugins>
-        </build>
-      </profile>
-
-      <profile>
-        <id>json-johnzon</id>
-        <dependencyManagement>
-          <dependencies>
-            <dependency>
-              <groupId>org.apache.johnzon</groupId>
-              <artifactId>johnzon-core</artifactId>
-              <classifier>jakarta</classifier>
-              <version>${dependency.johnzon.version}</version>
-              <scope>test</scope>
-              <exclusions>
-                <exclusion>
-                  <groupId>*</groupId>
-                  <artifactId>*</artifactId>
-                </exclusion>
-              </exclusions>
-            </dependency>
-            <dependency>
-              <groupId>org.apache.johnzon</groupId>
-              <artifactId>johnzon-jsonb</artifactId>
-              <classifier>jakarta</classifier>
-              <version>${dependency.johnzon.version}</version>
-              <scope>test</scope>
-              <exclusions>
-                <exclusion>
-                  <groupId>*</groupId>
-                  <artifactId>*</artifactId>
-                </exclusion>
-              </exclusions>
-            </dependency>
-            <dependency>
-              <groupId>org.apache.johnzon</groupId>
-              <artifactId>johnzon-mapper</artifactId>
-              <classifier>jakarta</classifier>
-              <version>${dependency.johnzon.version}</version>
-              <scope>test</scope>
-              <exclusions>
-                <exclusion>
-                  <groupId>*</groupId>
-                  <artifactId>*</artifactId>
-                </exclusion>
-              </exclusions>
-            </dependency>
-          </dependencies>
-        </dependencyManagement>
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.johnzon</groupId>
-            <artifactId>johnzon-core</artifactId>
-            <classifier>jakarta</classifier>
-            <scope>test</scope>
-          </dependency>
-          <dependency>
-            <groupId>org.apache.johnzon</groupId>
-            <artifactId>johnzon-jsonb</artifactId>
-            <classifier>jakarta</classifier>
-            <scope>test</scope>
-          </dependency>
-          <dependency>
-            <groupId>org.apache.johnzon</groupId>
-            <artifactId>johnzon-mapper</artifactId>
-            <classifier>jakarta</classifier>
-            <scope>test</scope>
-          </dependency>
-        </dependencies>
-      </profile>
-
-      <profile>
-        <id>jaxrs-cxf</id>
-        <dependencyManagement>
-          <dependencies>
-            <dependency>
-              <groupId>org.apache.cxf</groupId>
-              <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-              <version>3.5.3</version>
-              <scope>test</scope>
-            </dependency>
-          </dependencies>
-        </dependencyManagement>
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-            <scope>test</scope>
-          </dependency>
-          <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-client</artifactId>
-            <version>3.5.3</version>
-            <scope>test</scope>
-          </dependency>
-        </dependencies>
-        <build>
-          <plugins>
-            <plugin>
-              <artifactId>maven-surefire-plugin</artifactId>
-              <configuration>
-                <systemProperties>
-                  <property>
-                    <name>jakarta.ws.rs.ext.RuntimeDelegate</name>
-                    <value>org.apache.cxf.jaxrs.impl.RuntimeDelegateImpl</value>
-                  </property>
-                </systemProperties>
-              </configuration>
             </plugin>
           </plugins>
         </build>

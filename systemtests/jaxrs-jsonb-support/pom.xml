@@ -3,19 +3,6 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>17</source>
-          <target>17</target>
-          <compilerArgs>--enable-preview</compilerArgs>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
   <parent>
     <groupId>io.github.jaxrstesting</groupId>
@@ -25,24 +12,12 @@
   </parent>
 
   <groupId>io.github.jaxrstesting</groupId>
-  <artifactId>jaxrstesting-web-rest-impl</artifactId>
+  <artifactId>jaxrstesting-systemtests-jaxrs-jsonb-support</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <packaging>war</packaging>
 
-  <name>JAX-RS Testing :: Web :: Rest-impl</name>
+  <name>JAX-RS Testing :: SystemTests :: JAX-RS JSON-B Support</name>
 
   <dependencies>
-    <dependency>
-      <groupId>io.github.jaxrstesting</groupId>
-      <artifactId>jaxrstesting-web-rest-api</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>io.github.jaxrstesting</groupId>
-      <artifactId>jaxrstesting-services-api</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-    </dependency>
-
     <dependency>
       <groupId>jakarta.ws.rs</groupId>
       <artifactId>jakarta.ws.rs-api</artifactId>
@@ -54,17 +29,10 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>jakarta.json</groupId>
-      <artifactId>jakarta.json-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>jakarta.enterprise</groupId>
       <artifactId>jakarta.enterprise.cdi-api</artifactId>
       <scope>provided</scope>
     </dependency>
-
   </dependencies>
-
 
 </project>
