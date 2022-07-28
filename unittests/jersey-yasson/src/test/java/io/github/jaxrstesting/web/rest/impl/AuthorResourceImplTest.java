@@ -49,16 +49,9 @@ class AuthorResourceImplTest {
     final var authorId = new AuthorId("rpfeynman");
     final var expected = new AuthorRestDto(authorId);
 
-    //noinspection SwitchStatementWithTooFewBranches
+    // noinspection SwitchStatementWithTooFewBranches
     when(queryService.queryAuthors(any(AuthorQuery.class)))
-        .then(
-            args ->
-                switch (args.getArgument(0)) {
-                  case AuthorByIdQuery authorByIdQuery -> Stream.of(
-                      new Author(authorByIdQuery.authorId()));
-                  default -> throw new UnsupportedOperationException(
-                      "not implemented: " + args.getArgument(0).getClass());
-                });
+        .then(args -> makeAnswerFromQuery(args.getArgument(0)));
 
     // when
     final Response authorByIdResponse = authorResource.getAuthorById(authorId);
@@ -67,5 +60,13 @@ class AuthorResourceImplTest {
     assertThat(authorByIdResponse)
         .extracting(Response::getStatus, Response::getEntity)
         .containsExactly(200, expected);
+  }
+
+  private Stream<Author> makeAnswerFromQuery(AuthorQuery argument) {
+    if (argument instanceof AuthorByIdQuery idQuery) {
+      return Stream.of(new Author(idQuery.authorId()));
+    }
+
+    throw new UnsupportedOperationException("Not implemented class: " + argument.getClass());
   }
 }

@@ -64,13 +64,7 @@ public class AuthorResourceTest extends JerseyTest {
   public void author_by_id_returns_author() {
     // given
     when(queryService.queryAuthors(any(AuthorQuery.class)))
-        .then(args ->
-            switch (args.getArgument(0)) {
-              case AuthorByIdQuery authorByIdQuery -> Stream.of(
-                  new Author(authorByIdQuery.authorId()));
-              default -> throw new UnsupportedOperationException(
-                  "not implemented: " + args.getArgument(0).getClass());
-            });
+        .then(args -> makeAnswerFromQuery(args.getArgument(0)));
 
     // when
     final Response authorByIdResponse = target("authors/rpfeynman")
@@ -82,8 +76,15 @@ public class AuthorResourceTest extends JerseyTest {
         .hasFieldOrPropertyWithValue("status", 200)
         .extracting(rsp -> rsp.readEntity(String.class))
         .extracting(jsonStr -> jsonbContext.getJsonb().fromJson(jsonStr, Map.class))
-        .hasFieldOrPropertyWithValue("id", "rpfeynman")
-    ;
+        .hasFieldOrPropertyWithValue("id", "rpfeynman");
+  }
+
+  private Stream<Author> makeAnswerFromQuery(AuthorQuery argument) {
+    if (argument instanceof AuthorByIdQuery idQuery) {
+      return Stream.of(new Author(idQuery.authorId()));
+    }
+
+    throw new UnsupportedOperationException("Not implemented class: " + argument.getClass());
   }
 
   @Test

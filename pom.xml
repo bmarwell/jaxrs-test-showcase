@@ -221,7 +221,6 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${plugin.maven-compiler-plugin.version}</version>
           <configuration>
-            <enablePreview>true</enablePreview>
             <showDeprecation>true</showDeprecation>
             <showWarnings>true</showWarnings>
           </configuration>
@@ -232,7 +231,6 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${plugin.maven-surefire-plugin.version}</version>
           <configuration>
-            <argLine>--enable-preview</argLine>
             <systemProperties>
               <property>
                 <name>java.util.logging.manager</name>
