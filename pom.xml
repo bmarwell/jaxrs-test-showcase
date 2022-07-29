@@ -368,6 +368,7 @@
               <goals>
                 <goal>report</goal>
                 <goal>report-integration</goal>
+                <goal>report-aggregate</goal>
               </goals>
             </execution>
           </executions>
