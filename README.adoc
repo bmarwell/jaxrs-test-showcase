@@ -6,6 +6,7 @@
 image:https://github.com/bmarwell/jaxrs-test-showcase/actions/workflows/maven-ci.yaml/badge.svg[alt="Maven CI",link="https://github.com/bmarwell/jaxrs-test-showcase/actions/workflows/maven-ci.yaml"]
 image:https://img.shields.io/badge/maintaied%20with-renovate-blue?logo=renovatebot[alt="renovate",link="https://lift.sonatype.com/results/github.com/bmarwell/jaxrs-test-showcase"]
 image:https://img.shields.io/badge/License-Apache%202.0-blue.svg[Apache License v2.0,124,20,link=https://opensource.org/licenses/Apache-2.0]
+image:https://codecov.io/gh/bmarwell/jaxrs-test-showcase/branch/main/graph/badge.svg?token=6CP2U6P3BA[alt="codecov",link="https://codecov.io/gh/bmarwell/jaxrs-test-showcase"]
 
 JAX-RS is a popular JavaEE standard to create RESTful endpoints in Java easily.
 However, it is not always clear for new learners how to test those endpoints properly.
