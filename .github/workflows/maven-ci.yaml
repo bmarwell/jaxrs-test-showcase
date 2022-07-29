@@ -22,3 +22,9 @@ jobs:
       - name: Build application with Maven using Eclipse Yasson and Eclipse Jersey
         shell: bash
         run: ./mvnw --show-version --errors --batch-mode --no-transfer-progress verify -Pdocs -DtrimStackTrace=false
+
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          files: '**/target/surefire-reports/TEST*.xml'
+          fail_ci_if_error: true # optional (default = false)
