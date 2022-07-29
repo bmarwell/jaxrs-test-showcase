@@ -17,7 +17,8 @@
 ~ specific language governing permissions and limitations
 ~ under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.jaxrstesting</groupId>
@@ -55,6 +56,7 @@
     <!-- plugin versions -->
     <plugin.maven-compiler-plugin.version>3.10.1</plugin.maven-compiler-plugin.version>
     <plugin.maven-surefire-plugin.version>3.0.0-M7</plugin.maven-surefire-plugin.version>
+    <plugin.maven-failsafe-plugin.version>3.0.0-M7</plugin.maven-failsafe-plugin.version>
 
     <!-- 3rd party plugins -->
     <plugin.spotless.version>2.23.0</plugin.spotless.version>
@@ -103,82 +105,82 @@
       <module>its/testcontainers/openliberty</module>
       <module>its/testcontainers/tomee</module>
     -->
-    </modules>
+  </modules>
 
-    <developers>
-      <developer>
-        <id>bdemers</id>
-        <name>Brian Demers</name>
-        <email>bdemers@apache.org</email>
-        <timezone>-5</timezone>
-      </developer>
-      <developer>
-        <id>bmarwell</id>
-        <name>Benjamin Marwell</name>
-        <email>bmarwell@apache.org</email>
-        <timezone>Europe/Berlin</timezone>
-      </developer>
-    </developers>
+  <developers>
+    <developer>
+      <id>bdemers</id>
+      <name>Brian Demers</name>
+      <email>bdemers@apache.org</email>
+      <timezone>-5</timezone>
+    </developer>
+    <developer>
+      <id>bmarwell</id>
+      <name>Benjamin Marwell</name>
+      <email>bmarwell@apache.org</email>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+  </developers>
 
-    <dependencyManagement>
-      <dependencies>
-        <!-- jakarta dependencies -->
-        <dependency>
-          <groupId>jakarta.ws.rs</groupId>
-          <artifactId>jakarta.ws.rs-api</artifactId>
-          <version>${dependency.jakarta.jaxrs-api.version}</version>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>jakarta.enterprise</groupId>
-          <artifactId>jakarta.enterprise.cdi-api</artifactId>
-          <version>${dependency.jakarta.cdi-api.version}</version>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>jakarta.json.bind</groupId>
-          <artifactId>jakarta.json.bind-api</artifactId>
-          <version>${dependency.jakarta.json.bind-api.version}</version>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>jakarta.json</groupId>
-          <artifactId>jakarta.json-api</artifactId>
-          <version>${dependency.jakarta.json-api.version}</version>
-          <scope>provided</scope>
-        </dependency>
+  <dependencyManagement>
+    <dependencies>
+      <!-- jakarta dependencies -->
+      <dependency>
+        <groupId>jakarta.ws.rs</groupId>
+        <artifactId>jakarta.ws.rs-api</artifactId>
+        <version>${dependency.jakarta.jaxrs-api.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.enterprise</groupId>
+        <artifactId>jakarta.enterprise.cdi-api</artifactId>
+        <version>${dependency.jakarta.cdi-api.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.json.bind</groupId>
+        <artifactId>jakarta.json.bind-api</artifactId>
+        <version>${dependency.jakarta.json.bind-api.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.json</groupId>
+        <artifactId>jakarta.json-api</artifactId>
+        <version>${dependency.jakarta.json-api.version}</version>
+        <scope>provided</scope>
+      </dependency>
 
-        <!-- logging dependencies -->
-        <dependency>
-          <groupId>io.yupiik.logging</groupId>
-          <artifactId>yupiik-logging-jul</artifactId>
-          <version>1.0.4</version>
-          <scope>test</scope>
-        </dependency>
+      <!-- logging dependencies -->
+      <dependency>
+        <groupId>io.yupiik.logging</groupId>
+        <artifactId>yupiik-logging-jul</artifactId>
+        <version>1.0.4</version>
+        <scope>test</scope>
+      </dependency>
 
-        <!-- test dependencies -->
-        <dependency>
-          <groupId>org.junit</groupId>
-          <artifactId>junit-bom</artifactId>
-          <version>5.9.0</version>
-          <type>pom</type>
-          <scope>import</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.assertj</groupId>
-          <artifactId>assertj-core</artifactId>
-          <version>${dependency.assertj.version}</version>
-          <scope>test</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.mockito</groupId>
-          <artifactId>mockito-core</artifactId>
-          <version>${dependency.mockito.version}</version>
-          <scope>test</scope>
-        </dependency>
+      <!-- test dependencies -->
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.8.2</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>${dependency.assertj.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${dependency.mockito.version}</version>
+        <scope>test</scope>
+      </dependency>
 
-      </dependencies>
-    </dependencyManagement>
+    </dependencies>
+  </dependencyManagement>
 
   <!-- forced dependencies -->
   <dependencies>
@@ -246,6 +248,38 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${plugin.maven-failsafe-plugin.version}</version>
+          <configuration>
+            <systemProperties>
+              <property>
+                <name>java.util.logging.manager</name>
+                <value>io.yupiik.logging.jul.YupiikLogManager</value>
+              </property>
+              <property>
+                <name>java.util.logging.config.file</name>
+                <value>src/test/resources/logging.properties</value>
+              </property>
+            </systemProperties>
+          </configuration>
+          <executions>
+            <execution>
+              <id>integration-test</id>
+              <goals>
+                <goal>integration-test</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>verify</id>
+              <goals>
+                <goal>verify</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>3.2.1</version>
         </plugin>
@@ -307,65 +341,98 @@
               </eclipse>
             </java>
           </configuration>
-          </plugin>
-        </plugins>
-      </pluginManagement>
+        </plugin>
 
-      <!-- forced plugin invocation -->
-      <plugins>
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.8.8</version>
+          <executions>
+            <execution>
+              <id>prepare-agent</id>
+              <phase>initialize</phase>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>prepare-it-agent</id>
+              <phase>pre-integration-test</phase>
+              <goals>
+                <goal>prepare-agent-integration</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <!-- forced plugin invocation -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <inherited>true</inherited>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <inherited>true</inherited>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+  </reporting>
+
+  <profiles>
+    <profile>
+      <id>docs</id>
+      <build>
+        <plugins>
           <plugin>
-            <groupId>com.diffplug.spotless</groupId>
-            <artifactId>spotless-maven-plugin</artifactId>
-            <inherited>true</inherited>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
             <executions>
               <execution>
+                <id>attach-api-docs</id>
                 <goals>
-                  <goal>check</goal>
+                  <goal>jar</goal>
                 </goals>
-                <phase>validate</phase>
               </execution>
             </executions>
+            <inherited>true</inherited>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+            <inherited>true</inherited>
           </plugin>
         </plugins>
       </build>
+    </profile>
+  </profiles>
 
-    <reporting>
-    </reporting>
-
-    <profiles>
-      <profile>
-        <id>docs</id>
-        <build>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-javadoc-plugin</artifactId>
-              <executions>
-                <execution>
-                  <id>attach-api-docs</id>
-                  <goals>
-                    <goal>jar</goal>
-                  </goals>
-                </execution>
-              </executions>
-              <inherited>true</inherited>
-            </plugin>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-source-plugin</artifactId>
-              <executions>
-                <execution>
-                  <id>attach-sources</id>
-                  <goals>
-                    <goal>jar-no-fork</goal>
-                  </goals>
-                </execution>
-              </executions>
-              <inherited>true</inherited>
-            </plugin>
-          </plugins>
-        </build>
-      </profile>
-    </profiles>
-
-  </project>
+</project>
