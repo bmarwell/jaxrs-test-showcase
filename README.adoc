@@ -21,22 +21,19 @@ As JAX-RS is only a standard and is usually used in conjunction with JSON, there
 
 .JAX-RS implementations
 |===
-|Vendor |Library Name |License |Maven Profile
+|Vendor |Library Name |License
 
 |Apache Foundation
 |Apache CXF
 |Apache License 2.0
-m|jaxrs-cxf
 
 |Eclipse Foundation
 |Eclipse Jersey (reference implementation)
 |Eclipse Public License 2.0
-m|jaxrs-jersey
 
 |JBoss by RedHat
 |JBoss restEasy
 |Apache License 2.0
-m|jaxrs-resteasy
 |===
 
 You can also switch the https://javaee.github.io/jsonb-spec/[JSON-B] and JSON-P implementations.
@@ -44,17 +41,15 @@ However, both of them can only be switched at the same time.
 
 .JSON implementations
 |===
-|Vendor |Library Name |License |Maven Profile
+|Vendor |Library Name |License
 
 |Apache Foundation
 |Apache Johnzon
 |Apache License 2.0
-m|json-johnzon
 
 |Eclipse Foundation
 |Eclipse Yasson (reference implementation)
 |Eclipse Public License 2.0
-m|json-yasson
 
 |===
 
@@ -71,4 +66,30 @@ the jar file from the API project for the https://cxf.apache.org/docs/jax-rs-cli
 
 === Test projects
 
-<TBD>
+.System tests
+|===
+|module path |JAX-RS impl |JSON impl
+
+m|systemtests/cxf-localtp-johnzon
+|Apache CXF
+|Apache Johnzon
+
+m|systemtests/jersey-grizzly2-johnzon
+|Eclipse Jersey
+|Apache Johnzon
+
+m|systemtests/jersey-grizzly2-yasson
+|Eclipse Jersey
+|Eclipse Yasson
+
+|===
+
+.Integration tests
+|===
+|module path |Container/App server
+
+|===
+
+== Built with Toolchains
+
+This project makes use of both the link:https://maven.apache.org/plugins/maven-toolchains-plugin/toolchain-mojo.html[maven-toolchain-plugin] to accept IBM Semeru Runtimes for tests and the link:https://github.com/linux-china/toolchains-maven-plugin[toolchains-maven-plugin] for downloading the JDK first (if required).

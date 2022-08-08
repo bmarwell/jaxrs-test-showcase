@@ -27,6 +27,18 @@ jobs:
           java-version: 17
           distribution: temurin
 
+      - name: Initialize
+        shell: bash
+        run: |
+          ./mvnw \
+            --show-version \
+            --errors \
+            --batch-mode \
+            --no-transfer-progress \
+             org.mvnsearch:toolchains-maven-plugin:toolchain \
+            -pl . \
+            -DtrimStackTrace=false
+
       - name: Build application with Maven
         shell: bash
         run: |
