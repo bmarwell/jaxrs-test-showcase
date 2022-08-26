@@ -68,7 +68,7 @@
     <dependency.jakarta.json-api.version>2.1.1</dependency.jakarta.json-api.version>
 
     <!-- 3rd party dependencies -->
-    <dependency.johnzon.version>1.2.18</dependency.johnzon.version>
+    <dependency.johnzon.version>1.2.19</dependency.johnzon.version>
     <dependency.yasson.version>3.0.1</dependency.yasson.version>
 
     <!-- test dependencies -->
