@@ -59,7 +59,7 @@
     <plugin.maven-failsafe-plugin.version>3.0.0-M7</plugin.maven-failsafe-plugin.version>
 
     <!-- 3rd party plugins -->
-    <plugin.spotless.version>2.24.0</plugin.spotless.version>
+    <plugin.spotless.version>2.25.0</plugin.spotless.version>
 
     <!-- Jakarta dependency versions -->
     <dependency.jakarta.jaxrs-api.version>3.1.0</dependency.jakarta.jaxrs-api.version>
