@@ -73,7 +73,7 @@
 
     <!-- test dependencies -->
     <dependency.assertj.version>3.23.1</dependency.assertj.version>
-    <dependency.mockito.version>4.7.0</dependency.mockito.version>
+    <dependency.mockito.version>4.8.0</dependency.mockito.version>
 
     <!-- plugin settings -->
     <plugin.spotless.eclipse.file>${reactor.root.dir}/eclipse-formatter.xml</plugin.spotless.eclipse.file>
