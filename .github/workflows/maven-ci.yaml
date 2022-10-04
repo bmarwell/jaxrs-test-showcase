@@ -19,9 +19,17 @@ jobs:
           java-version: 17
           distribution: temurin
 
-      - name: Build application with Maven using Eclipse Yasson and Eclipse Jersey
+      - name: Build application with Maven
         shell: bash
-        run: ./mvnw --show-version --errors --batch-mode --no-transfer-progress verify -Pdocs -DtrimStackTrace=false
+        run: |
+          ./mvnw \
+            --show-version \
+            --errors \
+            --batch-mode \
+            --no-transfer-progress \
+            verify jacoco:merge@jacoco-merge-cli site \
+            -Pdocs \
+            -DtrimStackTrace=false
 
       - uses: codecov/codecov-action@v3
         with:
