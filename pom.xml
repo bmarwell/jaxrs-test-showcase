@@ -70,7 +70,7 @@
 
     <!-- 3rd party dependencies -->
     <dependency.johnzon.version>1.2.19</dependency.johnzon.version>
-    <dependency.yasson.version>3.0.1</dependency.yasson.version>
+    <dependency.yasson.version>3.0.2</dependency.yasson.version>
 
     <!-- test dependencies -->
     <dependency.assertj.version>3.23.1</dependency.assertj.version>
