@@ -461,6 +461,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
+            <inherited>true</inherited>
             <executions>
               <execution>
                 <id>attach-api-docs</id>
@@ -469,7 +470,10 @@
                 </goals>
               </execution>
             </executions>
-            <inherited>true</inherited>
+            <configuration>
+              <quiet>true</quiet>
+              <maxmemory>2048m</maxmemory>
+            </configuration>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
