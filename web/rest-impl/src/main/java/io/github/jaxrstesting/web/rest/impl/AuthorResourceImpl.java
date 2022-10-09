@@ -84,7 +84,7 @@ public class AuthorResourceImpl implements AuthorResource {
     return queryService;
   }
 
-  protected void setQueryService(BookstoreQueryService queryService) {
+  public void setQueryService(BookstoreQueryService queryService) {
     this.queryService = queryService;
   }
 

@@ -8,14 +8,14 @@
     <groupId>io.github.jaxrstesting</groupId>
     <artifactId>jaxrstesting-root</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../../pom.xml</relativePath>
+    <relativePath>../..</relativePath>
   </parent>
 
   <groupId>io.github.jaxrstesting</groupId>
-  <artifactId>jaxrstesting-systemtests-jersey-grizzly2-johnzon</artifactId>
+  <artifactId>jaxrstesting-systemtests-cxf-localtp-johnzon</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
-  <name>JAX-RS Testing :: SystemTests :: Jersey+Grizzly2+Johnzon</name>
+  <name>JAX-RS Testing :: SystemTests :: CXF+LocalTP+Johnzon</name>
 
   <dependencies>
     <dependency>
@@ -25,18 +25,17 @@
       <classifier>classes</classifier>
       <scope>test</scope>
     </dependency>
-
     <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-server</artifactId>
-      <version>3.1.0-M8</version>
+      <groupId>io.github.jaxrstesting</groupId>
+      <artifactId>jaxrstesting-systemtests-cxf-localtp-junit-extension</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-client</artifactId>
-      <version>3.1.0-M8</version>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-rs-extension-providers</artifactId>
+      <version>${dependency.cxf.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -89,28 +88,6 @@
       <artifactId>jakarta.json-api</artifactId>
       <scope>test</scope>
     </dependency>
-
-    <dependency>
-      <groupId>org.glassfish.jersey.test-framework.providers</groupId>
-      <artifactId>jersey-test-framework-provider-grizzly2</artifactId>
-      <version>3.0.8</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.glassfish.jersey.inject</groupId>
-      <artifactId>jersey-hk2</artifactId>
-      <version>3.1.0-M8</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>io.github.jaxrstesting</groupId>
-      <artifactId>jaxrstesting-systemtests-jaxrs-jsonb-support</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-      <scope>test</scope>
-    </dependency>
-
   </dependencies>
 
 </project>
