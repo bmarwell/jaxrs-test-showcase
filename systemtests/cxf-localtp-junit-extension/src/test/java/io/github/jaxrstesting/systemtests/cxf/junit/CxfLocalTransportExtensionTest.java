@@ -35,13 +35,8 @@ class CxfLocalTransportExtensionTest {
     try {
       cxfExt.beforeAll(null);
       cxfExt.afterAll(null);
-    } catch (Exception javaLangException) {
-      throw new IllegalStateException(javaLangException);
     } finally {
-      if (cxfExt != null && cxfExt.getServer() != null && cxfExt.getServer().isStarted()) {
-        cxfExt.getServer().stop();
-        cxfExt.getServer().destroy();
-      }
+      shutDownInstance(cxfExt);
     }
   }
 
@@ -54,35 +49,32 @@ class CxfLocalTransportExtensionTest {
     try {
       cxfExt.beforeAll(null);
       cxfExt.afterAll(null);
-    } catch (Exception javaLangException) {
-      throw new IllegalStateException(javaLangException);
     } finally {
-      if (cxfExt != null && cxfExt.getServer() != null && cxfExt.getServer().isStarted()) {
-        cxfExt.getServer().stop();
-        cxfExt.getServer().destroy();
-      }
+      shutDownInstance(cxfExt);
     }
 
-    assertThat(cxfExt.getProvidersInstances())
+    assertThat(cxfExt.getProviders())
         .isNotEmpty()
         .hasSize(1);
   }
 
   @Test
   void server_can_be_started() {
-    CxfLocalTransportExtension cxfExt;
+    CxfLocalTransportExtension cxfExt = null;
 
     try {
       cxfExt = new CxfLocalTransportExtension()
           .withResource(TestResource.class, new TestResource());
       cxfExt.beforeAll(null);
     } catch (Exception javaLangException) {
+      shutDownInstance(cxfExt);
       throw new IllegalStateException(javaLangException);
     }
 
     // given
     final Server server = cxfExt.getServer();
     final WebClient webClient = cxfExt.getWebClient();
+    final String endpointAddress = cxfExt.getEndpointAddress();
 
     // then
     assertThat(server)
@@ -91,7 +83,7 @@ class CxfLocalTransportExtensionTest {
 
     assertThat(webClient)
         .isNotNull()
-        .matches(cl -> cl.getBaseURI().toASCIIString().startsWith(cxfExt.getEndpointAddress()));
+        .matches(cl -> cl.getBaseURI().toASCIIString().startsWith(endpointAddress));
 
     // given
     final Response response = webClient.get();
@@ -104,7 +96,15 @@ class CxfLocalTransportExtensionTest {
     try {
       cxfExt.afterAll(null);
     } catch (Exception javaLangException) {
+      shutDownInstance(cxfExt);
       throw new IllegalStateException(javaLangException);
+    }
+  }
+
+  private static void shutDownInstance(CxfLocalTransportExtension cxfExt) {
+    if (cxfExt != null && cxfExt.getServer() != null && cxfExt.getServer().isStarted()) {
+      cxfExt.getServer().stop();
+      cxfExt.getServer().destroy();
     }
   }
 
