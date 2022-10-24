@@ -3,10 +3,13 @@ package io.github.jaxrstesting.web.rest.api.json;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import jakarta.json.bind.JsonbConfig;
+import jakarta.ws.rs.ext.ContextResolver;
+import jakarta.ws.rs.ext.Provider;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class JsonbContext implements AutoCloseable {
+@Provider
+public class JsonbContext implements AutoCloseable, ContextResolver<Jsonb> {
 
   private static final Logger LOG = Logger.getLogger(JsonbContext.class.getName());
 
@@ -38,5 +41,10 @@ public class JsonbContext implements AutoCloseable {
         // pass
       }
     }
+  }
+
+  @Override
+  public Jsonb getContext(Class<?> type) {
+    return this.getJsonb();
   }
 }
