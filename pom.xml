@@ -85,13 +85,13 @@
   </properties>
 
   <modules>
-    <module>common/value</module>
-    <module>services/svc-api</module>
+    <module>app/common/value</module>
+    <module>app/services/svc-api</module>
     <!--
-      <module>services/svc-impl</module>
+      <module>app/services/svc-impl</module>
     -->
-    <module>web/rest-api</module>
-    <module>web/rest-impl</module>
+    <module>app/web/rest-api</module>
+    <module>app/web/rest-impl</module>
 
     <!-- Unit testing does not make much sense for JAX-RS, but you can unit-test JSON (de-)serialization. -->
     <module>unittests/jersey-yasson</module>
