@@ -60,7 +60,7 @@
     <plugin.maven-site-plugin.version>3.12.1</plugin.maven-site-plugin.version>
 
     <!-- 3rd party plugins -->
-    <plugin.spotless.version>2.27.2</plugin.spotless.version>
+    <plugin.spotless.version>2.28.0</plugin.spotless.version>
 
     <!-- Jakarta dependency versions -->
     <dependency.jakarta.jaxrs-api.version>3.1.0</dependency.jakarta.jaxrs-api.version>
