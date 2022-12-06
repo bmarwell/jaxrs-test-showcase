@@ -28,7 +28,7 @@
 
   <name>JAX-RS Testing Showcase</name>
   <url>https://github.com/bmarwell/jaxrs-test-showcase/</url>
-  <description></description>
+  <description>JAX-RS testing showcase</description>
   <inceptionYear>2022</inceptionYear>
 
   <scm>
@@ -110,13 +110,7 @@
       <module>its/openliberty</module>
       <module>its/wiremock</module>
       <module>its/wildfly</module>
-      <module>its/t    <dependency>
-      <groupId>io.github.jaxrstesting</groupId>
-      <artifactId>jaxrstesting-web-rest-impl</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-      <classifier>classes</classifier>
-      <scope>test</scope>
-    </dependency>estcontainers/openliberty</module>
+      <module>its/testcontainers/openliberty</module>
       <module>its/testcontainers/tomee</module>
     -->
   </modules>
