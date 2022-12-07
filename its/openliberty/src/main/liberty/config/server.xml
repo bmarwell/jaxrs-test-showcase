@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<server description="bookstore">
+
+  <!-- Enable features -->
+  <featureManager>
+    <feature>restfulWS-3.0</feature>
+    <feature>cdi-3.0</feature>
+    <feature>servlet-5.0</feature>
+    <feature>jsonb-2.0</feature>
+  </featureManager>
+
+  <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+  <httpEndpoint id="defaultHttpEndpoint"
+    httpPort="${default.http.port}"
+    httpsPort="${default.https.port}"/>
+
+  <cdi12 enableImplicitBeanArchives="false"/>
+  <webContainer skipMetaInfResourcesProcessing="true"/>
+  <config updateTrigger="disabled"/>
+
+  <!-- Default SSL configuration enables trust for default certificates from the Java runtime -->
+  <ssl id="defaultSSLConfig" trustDefaultCerts="true"/>
+
+  <webContainer deferServletLoad="false"/>
+
+
+  <webApplication location="${app.filename}.war" contextRoot="${app.context.root}"/>
+</server>

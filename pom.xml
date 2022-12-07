@@ -63,6 +63,7 @@
     <plugin.spotless.version>2.28.0</plugin.spotless.version>
 
     <!-- Jakarta dependency versions -->
+    <dependency.jakarta.servlet-api.version>5.0.0</dependency.jakarta.servlet-api.version>
     <dependency.jakarta.jaxrs-api.version>3.1.0</dependency.jakarta.jaxrs-api.version>
     <dependency.jakarta.cdi-api.version>4.0.1</dependency.jakarta.cdi-api.version>
     <dependency.jakarta.json.bind-api.version>3.0.0</dependency.jakarta.json.bind-api.version>
@@ -87,6 +88,7 @@
   <modules>
     <module>app/common/value</module>
     <module>app/services/svc-api</module>
+    <module>app/services/svc-inmemory-impl</module>
     <!--
       <module>app/services/svc-impl</module>
     -->
@@ -103,6 +105,8 @@
     <module>systemtests/cxf-localtp-junit-extension</module>
     <module>systemtests/cxf-localtp-johnzon</module>
     <module>systemtests/resteasy-undertow-yasson</module>
+
+    <module>its/openliberty</module>
 
     <!--
       <module>its/svc-mock</module>
@@ -133,6 +137,12 @@
   <dependencyManagement>
     <dependencies>
       <!-- jakarta dependencies -->
+      <dependency>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <version>${dependency.jakarta.servlet-api.version}</version>
+        <scope>provided</scope>
+      </dependency>
       <dependency>
         <groupId>jakarta.ws.rs</groupId>
         <artifactId>jakarta.ws.rs-api</artifactId>

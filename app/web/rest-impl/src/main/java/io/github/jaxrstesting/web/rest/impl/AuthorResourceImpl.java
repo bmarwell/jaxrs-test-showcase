@@ -53,7 +53,7 @@ public class AuthorResourceImpl implements AuthorResource {
           .build();
     }
 
-    AuthorRestDto authorRestDto = this.authorMapper.mapToAuthor(author.orElseThrow());
+    AuthorRestDto authorRestDto = this.authorMapper.mapToDto(author.orElseThrow());
 
     return Response
         .ok(authorRestDto)

@@ -17,6 +17,8 @@ import jakarta.json.bind.Jsonb;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 import org.glassfish.jersey.internal.inject.AbstractBinder;
@@ -73,15 +75,22 @@ public class AuthorResourceTest extends JerseyTest {
 
     // then
     assertThat(authorByIdResponse)
-        .hasFieldOrPropertyWithValue("status", 200)
-        .extracting(rsp -> rsp.readEntity(String.class))
-        .extracting(jsonStr -> jsonbContext.getJsonb().fromJson(jsonStr, Map.class))
+        .hasFieldOrPropertyWithValue("status", 200);
+    final String entity = authorByIdResponse.readEntity(String.class);
+    final Map<String, Object> map = jsonbContext.getJsonb().fromJson(entity, Map.class);
+    assertThat(map)
         .hasFieldOrPropertyWithValue("id", "rpfeynman");
   }
 
   private Stream<Author> makeAnswerFromQuery(AuthorQuery argument) {
     if (argument instanceof AuthorByIdQuery idQuery) {
-      return Stream.of(new Author(idQuery.authorId()));
+      return Stream.of(new Author(
+          idQuery.authorId(),
+          "Richard",
+          "Feynman",
+          LocalDate.of(1918, 5, 11),
+          "physicist",
+          List.of("Dick")));
     }
 
     throw new UnsupportedOperationException("Not implemented class: " + argument.getClass());
