@@ -7,7 +7,8 @@
     <feature>restfulWS-3.0</feature>
     <feature>cdi-3.0</feature>
     <feature>servlet-5.0</feature>
-    <feature>jsonb-2.0</feature>
+    <feature>jsonbContainer-2.0</feature>
+    <feature>jsonpContainer-2.0</feature>
   </featureManager>
 
   <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
@@ -24,6 +25,11 @@
 
   <webContainer deferServletLoad="false"/>
 
+  <bell libraryRef="johnzon"/>
+
+  <library id="johnzon">
+    <fileset dir="${server.config.dir}/lib/johnzon" includes="*.jar"/>
+  </library>
 
   <webApplication location="${app.filename}.war" contextRoot="${app.context.root}"/>
 </server>

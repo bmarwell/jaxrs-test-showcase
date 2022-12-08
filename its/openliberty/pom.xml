@@ -23,6 +23,7 @@
     <liberty.var.default.https.port>9443</liberty.var.default.https.port>
     <liberty.var.app.filename>jaxrstesting-web-rest-impl-${project.version}</liberty.var.app.filename>
     <liberty.var.app.context.root>/</liberty.var.app.context.root>
+    <server.dir>${project.build.directory}/liberty/wlp/usr/servers/bookstore</server.dir>
   </properties>
 
   <dependencies>
@@ -54,12 +55,18 @@
         <version>3.6.1</version>
         <executions>
           <execution>
-            <id>pre-it</id>
-            <phase>pre-integration-test</phase>
+            <id>prepare-liberty-server</id>
+            <phase>process-test-resources</phase>
             <goals>
               <goal>create</goal>
               <goal>deploy</goal>
               <goal>install-feature</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>pre-it</id>
+            <phase>pre-integration-test</phase>
+            <goals>
               <goal>start</goal>
             </goals>
           </execution>
@@ -78,6 +85,43 @@
           </features>
           <deployPackages>dependencies</deployPackages>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-johnzon-because-liberty-doesnt-know-about-classifiers</id>
+            <phase>process-test-resources</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${server.dir}/lib/johnzon</outputDirectory>
+              <artifactItems>
+                <item>
+                  <groupId>org.apache.johnzon</groupId>
+                  <artifactId>johnzon-core</artifactId>
+                  <classifier>jakarta</classifier>
+                  <version>${dependency.johnzon.version}</version>
+                </item>
+                <item>
+                  <groupId>org.apache.johnzon</groupId>
+                  <artifactId>johnzon-jsonb</artifactId>
+                  <classifier>jakarta</classifier>
+                  <version>${dependency.johnzon.version}</version>
+                </item>
+                <item>
+                  <groupId>org.apache.johnzon</groupId>
+                  <artifactId>johnzon-mapper</artifactId>
+                  <classifier>jakarta</classifier>
+                  <version>${dependency.johnzon.version}</version>
+                </item>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
 
       <plugin>

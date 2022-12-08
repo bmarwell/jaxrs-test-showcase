@@ -47,7 +47,9 @@ class AuthorRestDtoTest {
 
     // then
     // noinspection unchecked
-    assertThat(jsonb.getJsonb().fromJson(json, Map.class)).containsEntry("id", "rpfeynman");
+    assertThat(jsonb.getJsonb().fromJson(json, Map.class))
+        .containsEntry("id", "rpfeynman")
+        .containsEntry("first_name", "Richard");
   }
 
   @Test

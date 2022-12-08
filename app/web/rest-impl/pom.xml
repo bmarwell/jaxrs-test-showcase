@@ -62,12 +62,45 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- johnzon or yasson will both work -->
+    <!-- YASSON bug https://github.com/eclipse-ee4j/yasson/issues/583 -->
     <dependency>
-      <groupId>org.eclipse</groupId>
-      <artifactId>yasson</artifactId>
-      <version>${dependency.yasson.version}</version>
+      <groupId>org.apache.johnzon</groupId>
+      <artifactId>johnzon-core</artifactId>
+      <classifier>jakarta</classifier>
+      <version>${dependency.johnzon.version}</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.johnzon</groupId>
+      <artifactId>johnzon-jsonb</artifactId>
+      <classifier>jakarta</classifier>
+      <version>${dependency.johnzon.version}</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.johnzon</groupId>
+      <artifactId>johnzon-mapper</artifactId>
+      <classifier>jakarta</classifier>
+      <version>${dependency.johnzon.version}</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
 

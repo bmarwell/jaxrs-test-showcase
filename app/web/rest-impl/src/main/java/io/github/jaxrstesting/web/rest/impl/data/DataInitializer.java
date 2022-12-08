@@ -51,6 +51,8 @@ public class DataInitializer implements ServletContextListener {
           var jsonbContext = new JsonbContext()) {
         final Jsonb jsonb = jsonbContext.getJsonb();
         final AuthorRestDto[] authors = jsonb.fromJson(Objects.requireNonNull(ds), AuthorRestDto[].class);
+        Logger.getLogger(TestData.class.getName())
+            .log(Level.INFO, "authors: " + Arrays.toString(authors));
 
         return Arrays.stream(authors);
       } catch (IOException javaIoIOException) {
