@@ -63,6 +63,7 @@
     <plugin.spotless.version>2.28.0</plugin.spotless.version>
 
     <!-- Jakarta dependency versions -->
+    <dependency.jakarta.servlet-api.version>5.0.0</dependency.jakarta.servlet-api.version>
     <dependency.jakarta.jaxrs-api.version>3.1.0</dependency.jakarta.jaxrs-api.version>
     <dependency.jakarta.cdi-api.version>4.0.1</dependency.jakarta.cdi-api.version>
     <dependency.jakarta.json.bind-api.version>3.0.0</dependency.jakarta.json.bind-api.version>
@@ -70,7 +71,8 @@
 
     <!-- 3rd party dependencies -->
     <dependency.cxf.version>4.0.0-SNAPSHOT</dependency.cxf.version>
-    <dependency.johnzon.version>1.2.19</dependency.johnzon.version>
+    <!-- 1.2.20-SNAPSHOT adds PropertyNamingStrategy support @JsonbConstructor -->
+    <dependency.johnzon.version>1.2.20-SNAPSHOT</dependency.johnzon.version>
     <dependency.yasson.version>3.0.2</dependency.yasson.version>
 
     <!-- test dependencies -->
@@ -87,6 +89,7 @@
   <modules>
     <module>app/common/value</module>
     <module>app/services/svc-api</module>
+    <module>app/services/svc-inmemory-impl</module>
     <!--
       <module>app/services/svc-impl</module>
     -->
@@ -103,6 +106,8 @@
     <module>systemtests/cxf-localtp-junit-extension</module>
     <module>systemtests/cxf-localtp-johnzon</module>
     <module>systemtests/resteasy-undertow-yasson</module>
+
+    <module>its/openliberty</module>
 
     <!--
       <module>its/svc-mock</module>
@@ -133,6 +138,12 @@
   <dependencyManagement>
     <dependencies>
       <!-- jakarta dependencies -->
+      <dependency>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <version>${dependency.jakarta.servlet-api.version}</version>
+        <scope>provided</scope>
+      </dependency>
       <dependency>
         <groupId>jakarta.ws.rs</groupId>
         <artifactId>jakarta.ws.rs-api</artifactId>
@@ -222,7 +233,7 @@
     </dependency>
   </dependencies>
 
-  <!-- required for CXF v4.0.0-SNAPSHOT for jakarta support -->
+  <!-- required for CXF v4.0.0-SNAPSHOT for jakarta support and Johnzon-SNAPSHOT-->
   <repositories>
     <repository>
       <id>apache.snapshots</id>

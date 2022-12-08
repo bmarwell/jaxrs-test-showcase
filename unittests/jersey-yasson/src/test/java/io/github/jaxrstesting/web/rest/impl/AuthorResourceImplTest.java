@@ -13,6 +13,8 @@ import io.github.jaxrstesting.services.api.query.AuthorQuery;
 import io.github.jaxrstesting.web.rest.api.value.AuthorRestDto;
 import io.github.jaxrstesting.web.rest.impl.mapper.AuthorMapper;
 import jakarta.ws.rs.core.Response;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -47,9 +49,14 @@ class AuthorResourceImplTest {
   public void query_by_authorId_returns_author() {
     // given
     final var authorId = new AuthorId("rpfeynman");
-    final var expected = new AuthorRestDto(authorId);
+    final var expected = new AuthorRestDto(
+        authorId,
+        "Richard",
+        "Feynman",
+        LocalDate.of(1918, 5, 11),
+        "physicist",
+        List.of("Dick"));
 
-    // noinspection SwitchStatementWithTooFewBranches
     when(queryService.queryAuthors(any(AuthorQuery.class)))
         .then(args -> makeAnswerFromQuery(args.getArgument(0)));
 
@@ -64,7 +71,13 @@ class AuthorResourceImplTest {
 
   private Stream<Author> makeAnswerFromQuery(AuthorQuery argument) {
     if (argument instanceof AuthorByIdQuery idQuery) {
-      return Stream.of(new Author(idQuery.authorId()));
+      return Stream.of(new Author(
+          idQuery.authorId(),
+          "Richard",
+          "Feynman",
+          LocalDate.of(1918, 5, 11),
+          "physicist",
+          List.of("Dick")));
     }
 
     throw new UnsupportedOperationException("Not implemented class: " + argument.getClass());
