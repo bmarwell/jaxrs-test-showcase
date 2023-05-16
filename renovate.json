@@ -5,7 +5,7 @@
   "packageRules": [
     {
       "matchPackagePatterns": ["^io.github.jaxrstesting:"],
-      "ignoreLookupWarnings": true
+      "enabled": false
     }
  ]
 }
