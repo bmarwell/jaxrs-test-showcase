@@ -1,5 +1,11 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^io.github.jaxrstesting:"],
+      "ignoreLookupWarnings": true
+    }
+ ]
 }
