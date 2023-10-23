@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Skip Duplicate Actions
-        uses: fkirc/skip-duplicate-actions@v5.3.0
+        uses: fkirc/skip-duplicate-actions@v5.3.1
         with:
           paths_ignore: '[ "**/*.md", "**/*.adoc" ]'
           cancel_others: true
