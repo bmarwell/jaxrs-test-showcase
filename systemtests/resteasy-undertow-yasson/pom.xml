@@ -18,7 +18,7 @@
   <name>JAX-RS Testing :: SystemTests :: RestEasy+Undertow+Yasson</name>
 
   <properties>
-    <version.org.jboss.resteasy>6.2.3.Final</version.org.jboss.resteasy>
+    <version.org.jboss.resteasy>6.2.12.Final</version.org.jboss.resteasy>
   </properties>
 
   <dependencyManagement>
