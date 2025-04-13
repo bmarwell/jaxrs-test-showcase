@@ -73,7 +73,7 @@
     <dependency.cxf.version>4.0.5</dependency.cxf.version>
     <!-- 1.2.20-SNAPSHOT adds PropertyNamingStrategy support @JsonbConstructor -->
     <dependency.johnzon.version>2.0.1</dependency.johnzon.version>
-    <dependency.yasson.version>3.0.3</dependency.yasson.version>
+    <dependency.yasson.version>3.0.4</dependency.yasson.version>
 
     <!-- test dependencies -->
     <dependency.assertj.version>3.27.3</dependency.assertj.version>
