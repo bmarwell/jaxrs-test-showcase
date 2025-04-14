@@ -52,7 +52,7 @@ jobs:
             -Pdocs \
             -DtrimStackTrace=false
 
-      - uses: codecov/codecov-action@v5.4.0
+      - uses: codecov/codecov-action@v5.4.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           fail_ci_if_error: true # optional (default = false)
