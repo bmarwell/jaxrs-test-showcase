@@ -55,7 +55,7 @@
 
     <!-- plugin versions -->
     <plugin.maven-compiler-plugin.version>3.14.0</plugin.maven-compiler-plugin.version>
-    <plugin.maven-surefire-plugin.version>3.5.3</plugin.maven-surefire-plugin.version>
+    <plugin.maven-surefire-plugin.version>3.5.4</plugin.maven-surefire-plugin.version>
     <plugin.maven-failsafe-plugin.version>3.5.4</plugin.maven-failsafe-plugin.version>
     <plugin.maven-site-plugin.version>3.21.0</plugin.maven-site-plugin.version>
 
