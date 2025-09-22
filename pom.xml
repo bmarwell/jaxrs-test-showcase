@@ -76,7 +76,7 @@
     <dependency.yasson.version>3.0.4</dependency.yasson.version>
 
     <!-- test dependencies -->
-    <dependency.assertj.version>3.27.5</dependency.assertj.version>
+    <dependency.assertj.version>3.27.6</dependency.assertj.version>
     <dependency.mockito.version>5.20.0</dependency.mockito.version>
 
     <!-- plugin settings -->
