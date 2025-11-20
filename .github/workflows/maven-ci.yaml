@@ -20,7 +20,7 @@ jobs:
           do_not_skip: '["pull_request", "workflow_dispatch", "schedule"]'
 
       - name: Checkout
-        uses: actions/checkout@v5.0.1
+        uses: actions/checkout@v6
 
       - name: Set up JDK
         uses: actions/setup-java@v5
