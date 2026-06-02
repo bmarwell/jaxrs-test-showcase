@@ -63,7 +63,7 @@
     <plugin.spotless.version>3.6.0</plugin.spotless.version>
 
     <!-- Jakarta dependency versions -->
-    <dependency.jakarta.servlet-api.version>5.0.0</dependency.jakarta.servlet-api.version>
+    <dependency.jakarta.servlet-api.version>6.1.0</dependency.jakarta.servlet-api.version>
     <dependency.jakarta.jaxrs-api.version>4.0.0</dependency.jakarta.jaxrs-api.version>
     <dependency.jakarta.cdi-api.version>4.1.0</dependency.jakarta.cdi-api.version>
     <dependency.jakarta.json.bind-api.version>3.0.2</dependency.jakarta.json.bind-api.version>
